@@ -25,6 +25,7 @@
     "@scullyio/init": "^1.1.1",
     "@scullyio/ng-lib": "^1.0.0",
     "@scullyio/scully": "^1.0.0",
+    "@types/express-serve-static-core": "^4.17.18",
     "firebase": "^8.2.9",
     "firestore": "^1.1.6",
     "rxjs": "~6.6.0",
