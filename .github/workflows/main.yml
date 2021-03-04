@@ -24,7 +24,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
       - name: Scully Publish
         # You may pin to the exact commit or the version.
         # uses: cmgriffing/scully-gh-pages-action@089c8e948312fa3ad94d1ebc9d763df442c839a8
