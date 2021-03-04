@@ -12,7 +12,7 @@
 /scully
 
 # scully config
-scully.DariusCocoaraPortfolio.config.ts
+#scully.DariusCocoaraPortfolio.config.ts
 
 # profiling files
 chrome-profiler-events*.json
