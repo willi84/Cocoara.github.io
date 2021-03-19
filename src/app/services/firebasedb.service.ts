@@ -14,7 +14,7 @@ export class FirebasedbService {
   constructor(private firestore: AngularFirestore) { }
 
   getPortfolio(): Observable<Portfolio[]> {
-    return this.firestore.collection<Portfolio>("portfolios").valueChanges({ idField: 'id' });
+    return this.firestore.collection<Portfolio>("portfolio").valueChanges({ idField: 'id' });
     //select * from funkos;
   }
 
