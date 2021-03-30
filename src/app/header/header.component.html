@@ -12,6 +12,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/works">Works</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="user != null" href="/private">Private</a>
           </li> 
           <li class="nav-item">
             <a class="nav-link" *ngIf="user == null" href="/login">Login</a>

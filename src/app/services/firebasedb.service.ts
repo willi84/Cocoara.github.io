@@ -51,7 +51,6 @@ export class FirebasedbService {
   }
 
   private queryByCollection(collection: string, ref: any) {
-    console.log(collection);
     return ref.where("collection", "==", collection);
   }
 }

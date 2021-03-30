@@ -10,19 +10,19 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { PrivateComponent } from './private/private.component';
 import { WorksComponent } from './works/works.component';
 
-const redirectLoggedInToPrivate = () => redirectLoggedInTo(['private']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['private']);
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'portfolio', component: PortfolioComponent},
-  {path: 'works', component: WorksComponent},
-  {path: 'private', component: PrivateComponent,  canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToPrivate  }},
-  {path: 'login', component: LoginComponent,  canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin  }},
-  {path: 'logout', component: LogoutComponent,  canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin  }}
-  ];
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'portfolio', component: PortfolioComponent },
+  { path: 'works', component: WorksComponent },
+  {path: 'private', component: PrivateComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin  }},
+  {path: 'login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

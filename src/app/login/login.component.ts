@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
               //correcte
               this.loginError = false;
               this.allowedUserError = false;
-              this.router.navigate(['/private']);
+              this.router.navigate(['/home']);
             }
             else{
               //login error
