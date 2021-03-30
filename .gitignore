@@ -10,6 +10,7 @@
 # dependencies
 /node_modules
 /scully
+token_.txt
 
 # scully config
 #scully.DariusCocoaraPortfolio.config.ts

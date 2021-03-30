@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import firebase from 'firebase/app';
+import { FirebaseauthService } from '../services/firebaseauth.service';
+
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public user!: firebase.User;
+
+  constructor(private fireauth: FirebaseauthService) { }
 
   ngOnInit(): void {
+    this.fireauth.user.subscribe(
+      (originalUser: firebase.User) => {
+        this.user = originalUser;
+        console.log(this.user)
+      }
+    )
   }
 
 }

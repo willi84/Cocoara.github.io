@@ -1,16 +1,21 @@
-export class Portfolio {
+export class Practiques {
+    [x: string]: any;
     private _id: string;
     private _title: string;
-    private _image: string;
+    private _send: string;
     private _description: string;
     private _data: string;
+    private _content: string;
+    private _document: string;
 
     constructor() {
         this._id = "";
         this._title = "";
-        this._image = "";
+        this._send = "";
         this._description = "";
         this._data = "";
+        this._content = "";
+        this._document = "";
     }
 
     get id(): string {
@@ -21,8 +26,8 @@ export class Portfolio {
         return this._title;
     }
 
-    get image(): string {
-        return this._image;
+    get send(): string {
+        return this._send;
     }
 
     get description(): string {
@@ -33,6 +38,24 @@ export class Portfolio {
         return this._data;
     }
 
+
+    get content(): string {
+        return this._content;
+    }
+
+
+    get document(): string {
+        return this._document;
+    }
+
+    set content(content: string) {
+        this._content = content;
+    }
+
+    set document(document: string) {
+        this._document = document;
+    }
+
     set id(id: string) {
         this._id = id;
     }
@@ -41,8 +64,8 @@ export class Portfolio {
         this._title = title;
     }
 
-    set image(image: string) {
-        this._image = image;
+    set send(send: string) {
+        this._send = send;
     }
 
     set description(description: string) {

@@ -16,6 +16,7 @@ import { WorksComponent } from './works/works.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PrivateComponent } from './private/private.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginComponent } from './login/login.component';
     PortfolioComponent,
     WorksComponent,
     PrivateComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Portfolio } from './models/portfolio';
+import { Practiques } from './models/practiques';
 import { FirebasedbService } from './services/firebasedb.service';
 
 @Component({
@@ -8,42 +8,46 @@ import { FirebasedbService } from './services/firebasedb.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public portfolios: Portfolio[] = [];
-  public portfolio: Portfolio;
-  public mode: string;
+  public PractiquesTotals: Practiques[] = [];
+  public Practiques: Practiques;
+  public PractiquesDetails: Practiques;
 
   constructor(private firebd: FirebasedbService) {
-    this.portfolio = new Portfolio();
-    this.mode = "add";
+    this.Practiques = new Practiques();
 
-    this.firebd.getPortfolio().subscribe(
-      (originalPortfolios: Portfolio[]) => {
-        this.portfolios = originalPortfolios;
-        console.log(this.portfolios);
+    this.firebd.getPractiques().subscribe(
+      (originalPractiques: Practiques[]) => {
+        this.PractiquesTotals = originalPractiques;
+        console.log(this.PractiquesTotals);
       }
     );
+    this.PractiquesDetails = new Practiques();
   }
 
-  clearFunko() {
-    this.mode = "add";
-    this.portfolio = new Portfolio();
+  clearPractiques() {
+    this.Practiques = new Practiques();
   }
 
-  addPortfolio() {
-    this.firebd.addPortfolio(this.portfolio);
+  addPractiques() {
+    this.firebd.addPractiques(this.PractiquesDetails);
   }
 
-  deletePortfolio(i: number) {
-    this.firebd.deletePortfolio(this.portfolios[i].id);
+  deletePractiques(i: number) {
+    this.firebd.deletePractiques(this.Practiques[i].id);
   }
 
-  loadCurrentPortfolio(i: number) {
-    this.mode = "update"
-    this.portfolio = this.portfolios[i];
+  loadCurrentPractiques(i: number) {
+    this.Practiques = this.PractiquesTotals[i];
   }
 
-  updatePortfolio() {
-    this.firebd.updatePortfolio(this.portfolio.id, this.portfolio);
+  seeDetails(i: number) {
+    this.PractiquesDetails = this.PractiquesTotals[i];
   }
+
+  updatePractiques() {
+    this.firebd.updatePractiques(this.PractiquesDetails.id, this.PractiquesDetails);
+  }
+
+  
 
 }

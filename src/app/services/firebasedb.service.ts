@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import { AngularFirestore } from '@angular/fire/firestore';
 
-import { Portfolio } from '../models/portfolio';
+import { Practiques } from '../models/practiques';
 
 @Injectable({
   providedIn: 'root'
@@ -13,30 +13,41 @@ export class FirebasedbService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  getPortfolio(): Observable<Portfolio[]> {
-    return this.firestore.collection<Portfolio>("portfolio").valueChanges({ idField: 'id' });
+  checkAllowedUser(email: string): Observable<any[]>{
+    return this.firestore.collection("allowed_users", ref => this.queryByEmail(email, ref)).valueChanges();
+  }
+
+  private queryByEmail(email: string, ref:any){
+    return ref.where("email", "==", email);
+  }
+
+  getPractiques(): Observable<Practiques[]> {
+    return this.firestore.collection<Practiques>("practiques").valueChanges({ idField: 'id' });
     //select * from funkos;
   }
 
-  addPortfolio(portfolio: Portfolio) {
-    this.firestore.collection("portfolios").add({
-      title: portfolio.title,
-      image: portfolio.image,
-      data: portfolio.data,
-      description: portfolio.description
+  addPractiques(practiques: Practiques) {
+    this.firestore.collection("practiques").add({
+      title: practiques.title,
+      data: practiques.data,
+      document: practiques.document,
+      media: practiques.media,
+      content: practiques.content,
+      numeroDePractica: practiques.numeroDePractica,
+      description: practiques.description
     });
   }
 
-  deletePortfolio(id: string) {
-    this.firestore.collection("portfolios").doc(id).delete();
+  deletePractiques(id: string) {
+    this.firestore.collection<Practiques>("practiques").doc(id).delete();
   }
 
-  updatePortfolio(id: string, portfolio: Portfolio) {
-    this.firestore.collection("portfolios").doc(id).update(portfolio);
+  updatePractiques(id: string, Practiques: Practiques) {
+    this.firestore.collection("practiques").doc(id).update(Practiques);
   }
 
-  getPortfolioByCollection(collection: string): Observable<Portfolio[]> {
-    return this.firestore.collection<Portfolio>("portfolios", (ref: any) => this.queryByCollection(collection, ref)).valueChanges({ idField: 'id' });
+  getPractiquesByCollection(collection: string): Observable<Practiques[]> {
+    return this.firestore.collection<Practiques>("practiques", (ref: any) => this.queryByCollection(collection, ref)).valueChanges({ idField: 'id' });
   }
 
   private queryByCollection(collection: string, ref: any) {

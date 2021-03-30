@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Portfolio } from '../models/portfolio';
+import { Practiques } from '../models/practiques';
 import { FirebasedbService } from '../services/firebasedb.service';
 
 @Component({
@@ -9,37 +9,48 @@ import { FirebasedbService } from '../services/firebasedb.service';
 })
 export class PrivateComponent implements OnInit {
 
-  public portfolios: Portfolio[] = [];
-  public portfolio: Portfolio;
-  public mode: string;
+  public PractiquesTotals: Practiques[] = [];
+  public Practiques: Practiques;
+  public PractiquesDetails: Practiques;
+
 
   constructor(private firebd: FirebasedbService) {
-    this.portfolio = new Portfolio();
-    this.mode = "add";
+    this.Practiques = new Practiques();
 
-    this.firebd.getPortfolio().subscribe(
-      (originalPortfolios: Portfolio[]) => {
-        this.portfolios = originalPortfolios;
-        console.log(this.portfolios);
+    this.firebd.getPractiques().subscribe(
+      (originalPractiques: Practiques[]) => {
+        this.PractiquesTotals = originalPractiques;
+        console.log(this.Practiques);
       }
     );
+    this.PractiquesDetails = new Practiques();
   }
 
-  addPortfolio() {
-    this.firebd.addPortfolio(this.portfolio);
+  clearPractiques() {
+    this.Practiques = new Practiques();
   }
 
-  deletePortfolio(i: number) {
-    this.firebd.deletePortfolio(this.portfolios[i].id);
+
+  addPractiques() {
+    this.firebd.addPractiques(this.PractiquesDetails);
   }
 
-  loadCurrentPortfolio(i: number) {
-    this.mode = "update"
-    this.portfolio = this.portfolios[i];
+  deletePractiques(i: number) {
+    this.firebd.deletePractiques(this.PractiquesTotals[i].id);
   }
 
-  updatePortfolio() {
-    this.firebd.updatePortfolio(this.portfolio.id, this.portfolio);
+  loadCurrentPractiques(i: number) {
+    this.Practiques = this.PractiquesTotals[i];
+  }
+
+  updatePractiques() {
+    this.firebd.updatePractiques(this.PractiquesDetails.id, this.PractiquesDetails);
+  }
+
+  seeDetails(i: number) {
+    console.log(i);
+    this.PractiquesDetails = this.PractiquesTotals[i];
+    console.log(this.PractiquesDetails);
   }
 
 

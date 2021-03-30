@@ -1,1 +1,13 @@
-<p>login works!</p>
+
+<div class="container wrapper">
+    <button type="button" class="btn btn-success" (click)="login()" *ngIf="!allowedUserError">Iniciar session con Google</button>
+    <button type="button" class="btn btn-success" (click)="login()" *ngIf="allowedUserError">Canviar usuari de Google</button>
+</div>
+
+<div class="container" *ngIf="allowedUserError">
+<h4>No tens acces amb aquest usuari</h4>
+</div>
+
+<div class="container" *ngIf="loginError">
+    <h4>S'ha priduit un error durant l'inici de seesió</h4>
+    </div>

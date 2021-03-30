@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Portfolio } from '../models/portfolio';
+import { Practiques } from '../models/practiques';
 import { FirebasedbService } from '../services/firebasedb.service';
 
 @Component({

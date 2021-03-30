@@ -14,7 +14,10 @@
             <a class="nav-link" href="/works">Works</a>
           </li> 
           <li class="nav-item">
-            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" *ngIf="user == null" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="user != null" href="/logout">Log Out</a>
           </li>
       </ul>
     </div>
