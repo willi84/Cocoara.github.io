@@ -35,7 +35,6 @@
 						<td>{{Practiques.docmunet}}</td> -->
 						<td>
 							<a href="#seePracticaModal" class="edit" data-toggle="modal" (click)="seeDetails(i)"><i class="fas fa-eye" style="color:lightseagreen"></i></a>&nbsp;
-							<a href="#editPracticaModal" class="edit" data-toggle="modal"><i class="fas fa-edit" style="color:orange"></i></a>&nbsp;
 							<a class="delete" (click)="deletePractiques(i)"><i class="fas fa-trash" style="color:red"></i></a>
 						</td>
 					</tr>
@@ -117,6 +116,7 @@
 
 				</div>
 				<div class="modal-footer">
+					<a href="#editPracticaModal" class="edit" data-toggle="modal"><i class="fas fa-edit" style="color:orange"></i></a>&nbsp;
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
 					<input type="submit" class="btn btn-info" value="Save">
 				</div>
