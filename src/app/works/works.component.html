@@ -3,23 +3,29 @@
 </nav>
 <br>
 <div class="container-fluid">
-
-    <div class="card text-white bg-dark mb-3" *ngFor="let Practiques of PractiquesTotals; let i=index">
-        <div class="card-header text-center"><i class="fas fa-laptop-code fa-2x" style="color:lightseagreen"></i></div>
-        <div class="card-body">
-            <h5 class="card-title">{{Practiques.title}} <br> Práctica Nº <span
-                    class="badge badge-primary badge-pill">{{Practiques.numeroDePractica}}</span></h5>
-            <small> Data: {{Practiques.data}}</small>
-            <div class="card-text">
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
-                        Descripción: <br>{{Practiques.content}} </li>
-                    <li
-                        class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
-                      Docuemnto: <a href="{{Practiques.document}}">  <i class="fas fa-file-pdf fa-2x" style="color: red;"></i></a>    
-                    </li>
-                </ul>
+    <div class="row justify-content-center">
+            <div class="card text-white bg-dark m-5 mb-3" style="max-width: 500px; min-width: 500px;"
+                *ngFor="let Practiques of PractiquesTotals; let i=index">
+                <div class="card-header text-center"><i class="fas fa-laptop-code fa-2x"
+                        style="color:lightseagreen"></i>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{Practiques.title}} <br> Práctica Nº <span
+                            class="badge badge-primary badge-pill">{{Practiques.numeroDePractica}}</span></h5>
+                    <small> Data: {{Practiques.data}}</small>
+                    <div class="card-text">
+                        <ul class="list-group">
+                            <li
+                                class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+                                Descripción: <br>{{Practiques.content}} </li>
+                            <li
+                                class="list-group-item list-group-item-secondary d-flex justify-content-between align-items-center">
+                                Docuemnto: <a href="{{Practiques.document}}"> <i class="fas fa-file-pdf fa-2x"
+                                        style="color: red;"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 </div>
