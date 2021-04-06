@@ -23,7 +23,6 @@ export class FirebasedbService {
 
   getPractiques(): Observable<Practiques[]> {
     return this.firestore.collection<Practiques>("practiques").valueChanges({ idField: 'id' });
-    //select * from funkos;
   }
 
   addPractiques(practiques: Practiques) {
